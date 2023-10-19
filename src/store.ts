@@ -1,6 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { ThunkDispatch, configureStore } from '@reduxjs/toolkit';
 import counterReducer from './features/counterSlice'
 import compainesSlice from './features/compainesSlice'
+
 
 export const store = configureStore({
   reducer: {
@@ -8,6 +9,7 @@ export const store = configureStore({
     compainesReducer : compainesSlice,
   },
 })
+
 export default store;
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

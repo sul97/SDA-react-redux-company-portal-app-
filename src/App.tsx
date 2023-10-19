@@ -5,6 +5,12 @@ import { decrement, increment } from './features/counterSlice'
 import { RootState } from './store'
 import './App.css'
 import Companies from './components/Companies'
+import SingleCompany from './components/SingleCompany'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './Navbar'
+import Home  from './pages/Home'
+import Error from './pages/Error'
+
 
 function App() {
   //const count = useSelector((state: RootState) => state.counter.value)
@@ -30,7 +36,16 @@ function App() {
           </Grid>
         </Grid>
       </Box> */}
-      <Companies/>
+      <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/companies" element={<Companies/>}></Route>
+        <Route path="/companies/:id" element={<SingleCompany/>}></Route>
+        <Route path="*" element={<Error/>}></Route>
+      </Routes>
+      </BrowserRouter>
+      
     </div>
   )
 }
